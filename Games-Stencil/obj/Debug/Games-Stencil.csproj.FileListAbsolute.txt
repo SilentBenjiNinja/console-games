@@ -1,0 +1,7 @@
+D:\Git\console-games\Games-Stencil\bin\Debug\Games-Stencil.exe.config
+D:\Git\console-games\Games-Stencil\bin\Debug\Games-Stencil.exe
+D:\Git\console-games\Games-Stencil\bin\Debug\Games-Stencil.pdb
+D:\Git\console-games\Games-Stencil\obj\Debug\Games-Stencil.csproj.AssemblyReference.cache
+D:\Git\console-games\Games-Stencil\obj\Debug\Games-Stencil.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Games-Stencil\obj\Debug\Games-Stencil.exe
+D:\Git\console-games\Games-Stencil\obj\Debug\Games-Stencil.pdb

@@ -1,0 +1,7 @@
+G:\IBB\IBB CSharp Kurs\Game Of Life Simulation\bin\Debug\Game Of Life Simulation.exe.config
+G:\IBB\IBB CSharp Kurs\Game Of Life Simulation\bin\Debug\Game Of Life Simulation.exe
+G:\IBB\IBB CSharp Kurs\Game Of Life Simulation\bin\Debug\Game Of Life Simulation.pdb
+G:\IBB\IBB CSharp Kurs\Game Of Life Simulation\obj\Debug\Game Of Life Simulation.csproj.AssemblyReference.cache
+G:\IBB\IBB CSharp Kurs\Game Of Life Simulation\obj\Debug\Game Of Life Simulation.csproj.CoreCompileInputs.cache
+G:\IBB\IBB CSharp Kurs\Game Of Life Simulation\obj\Debug\Game Of Life Simulation.exe
+G:\IBB\IBB CSharp Kurs\Game Of Life Simulation\obj\Debug\Game Of Life Simulation.pdb

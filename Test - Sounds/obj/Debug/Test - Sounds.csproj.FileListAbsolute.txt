@@ -1,0 +1,13 @@
+D:\IBB\IBB CSharp Kurs\Test - Sounds\bin\Debug\Test - Sounds.exe.config
+D:\IBB\IBB CSharp Kurs\Test - Sounds\bin\Debug\Test - Sounds.exe
+D:\IBB\IBB CSharp Kurs\Test - Sounds\bin\Debug\Test - Sounds.pdb
+D:\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.exe
+D:\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.pdb
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\bin\Debug\Test - Sounds.exe.config
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\bin\Debug\Test - Sounds.exe
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\bin\Debug\Test - Sounds.pdb
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.csproj.AssemblyReference.cache
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.csproj.CoreCompileInputs.cache
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.exe
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.pdb

@@ -1,0 +1,14 @@
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.csproj.AssemblyReference.cache
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.csproj.CoreCompileInputs.cache
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\ASCII Art Renderer\bin\Debug\ASCII Art Renderer.exe.config
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\ASCII Art Renderer\bin\Debug\ASCII Art Renderer.exe
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\ASCII Art Renderer\bin\Debug\ASCII Art Renderer.pdb
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.exe
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.pdb
+D:\IBB\IBB CSharp Kurs\ASCII Art Renderer\bin\Debug\ASCII Art Renderer.exe.config
+D:\IBB\IBB CSharp Kurs\ASCII Art Renderer\bin\Debug\ASCII Art Renderer.exe
+D:\IBB\IBB CSharp Kurs\ASCII Art Renderer\bin\Debug\ASCII Art Renderer.pdb
+D:\IBB\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.csproj.AssemblyReference.cache
+D:\IBB\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.exe
+D:\IBB\IBB CSharp Kurs\ASCII Art Renderer\obj\Debug\ASCII Art Renderer.pdb

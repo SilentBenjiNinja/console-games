@@ -1,0 +1,14 @@
+D:\IBB\IBB CSharp Kurs\Farbtest\bin\Debug\Farbtest.exe.config
+D:\IBB\IBB CSharp Kurs\Farbtest\bin\Debug\Farbtest.exe
+D:\IBB\IBB CSharp Kurs\Farbtest\bin\Debug\Farbtest.pdb
+D:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Farbtest.exe
+D:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Farbtest.pdb
+D:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.AssemblyReference.cache
+D:\Git\folder\Farbtest\bin\Debug\Farbtest.exe.config
+D:\Git\folder\Farbtest\bin\Debug\Farbtest.exe
+D:\Git\folder\Farbtest\bin\Debug\Farbtest.pdb
+D:\Git\folder\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.AssemblyReference.cache
+D:\Git\folder\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.CoreCompileInputs.cache
+D:\Git\folder\Farbtest\obj\Debug\Farbtest.exe
+D:\Git\folder\Farbtest\obj\Debug\Farbtest.pdb

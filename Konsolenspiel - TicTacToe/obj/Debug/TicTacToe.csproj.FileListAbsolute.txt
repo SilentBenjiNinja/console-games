@@ -1,0 +1,6 @@
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\bin\Debug\Konsolenspiel - TicTacToe.exe.config
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\bin\Debug\Konsolenspiel - TicTacToe.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\bin\Debug\Konsolenspiel - TicTacToe.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\obj\Debug\TicTacToe.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\obj\Debug\Konsolenspiel - TicTacToe.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\obj\Debug\Konsolenspiel - TicTacToe.pdb

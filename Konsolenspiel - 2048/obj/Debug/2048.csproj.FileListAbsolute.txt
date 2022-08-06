@@ -1,0 +1,14 @@
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\bin\Debug\Konsolenspiel - 2048.exe.config
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\bin\Debug\Konsolenspiel - 2048.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\bin\Debug\Konsolenspiel - 2048.pdb
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\2048.csproj.AssemblyReference.cache
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Konsolenspiel - 2048.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Konsolenspiel - 2048.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\bin\Debug\Konsolenspiel - 2048.exe.config
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\bin\Debug\Konsolenspiel - 2048.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\bin\Debug\Konsolenspiel - 2048.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\2048.csproj.AssemblyReference.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\2048.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Konsolenspiel - 2048.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Konsolenspiel - 2048.pdb

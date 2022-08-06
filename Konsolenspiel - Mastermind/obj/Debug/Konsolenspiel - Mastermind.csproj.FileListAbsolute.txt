@@ -1,0 +1,28 @@
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\C# - Grundlagen\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe.config
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\C# - Grundlagen\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\C# - Grundlagen\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.pdb
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\C# - Grundlagen\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.CoreCompileInputs.cache
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\C# - Grundlagen\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.exe
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\C# - Grundlagen\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.pdb
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\C# - Grundlagen\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.AssemblyReference.cache
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe.config
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.pdb
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.AssemblyReference.cache
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.CoreCompileInputs.cache
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.exe
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.pdb
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe.config
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.pdb
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.AssemblyReference.cache
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.CoreCompileInputs.cache
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.exe
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.pdb
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe.config
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.pdb
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.AssemblyReference.cache
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.csproj.CoreCompileInputs.cache
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.pdb

@@ -1,0 +1,7 @@
+G:\IBB\IBB CSharp Kurs\Farbtest\bin\Debug\Farbtest.exe.config
+G:\IBB\IBB CSharp Kurs\Farbtest\bin\Debug\Farbtest.exe
+G:\IBB\IBB CSharp Kurs\Farbtest\bin\Debug\Farbtest.pdb
+G:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Farbtest.csproj.CoreCompileInputs.cache
+G:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Farbtest.exe
+G:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Farbtest.pdb
+G:\IBB\IBB CSharp Kurs\Farbtest\obj\Debug\Farbtest.csproj.AssemblyReference.cache

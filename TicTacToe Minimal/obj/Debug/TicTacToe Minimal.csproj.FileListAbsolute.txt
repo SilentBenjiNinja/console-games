@@ -1,0 +1,21 @@
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.exe.config
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.exe
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.pdb
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.csproj.AssemblyReference.cache
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.csproj.CoreCompileInputs.cache
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.exe
+D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.pdb
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.exe.config
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.exe
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.pdb
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.csproj.AssemblyReference.cache
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.csproj.CoreCompileInputs.cache
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.exe
+C:\Users\Andreas\Desktop\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.pdb
+G:\IBB\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.exe.config
+G:\IBB\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.exe
+G:\IBB\IBB CSharp Kurs\TicTacToe Minimal\bin\Debug\TicTacToe Minimal.pdb
+G:\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.csproj.AssemblyReference.cache
+G:\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.csproj.CoreCompileInputs.cache
+G:\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.exe
+G:\IBB\IBB CSharp Kurs\TicTacToe Minimal\obj\Debug\TicTacToe Minimal.pdb

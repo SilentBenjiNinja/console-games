@@ -1,0 +1,27 @@
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.AssemblyReference.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.GenerateResource.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe.config
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Games.Sokoban.Properties.Resources.resources
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.pdb
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe.config
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.pdb
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.AssemblyReference.cache
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Games.Sokoban.Properties.Resources.resources
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.GenerateResource.cache
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.CoreCompileInputs.cache
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.exe
+C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.pdb
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe.config
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.pdb
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.AssemblyReference.cache
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Games.Sokoban.Properties.Resources.resources
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.GenerateResource.cache
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.CoreCompileInputs.cache
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.exe
+C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.pdb

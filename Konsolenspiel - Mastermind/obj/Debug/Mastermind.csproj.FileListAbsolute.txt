@@ -1,0 +1,13 @@
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe.config
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.pdb
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Mastermind.csproj.CoreCompileInputs.cache
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe.config
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\bin\Debug\Konsolenspiel - Mastermind.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Mastermind.csproj.AssemblyReference.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Mastermind.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Konsolenspiel - Mastermind.pdb

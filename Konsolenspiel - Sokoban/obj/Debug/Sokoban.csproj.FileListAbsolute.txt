@@ -1,0 +1,13 @@
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Konsolenspiel - Sokoban.exe.config
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Konsolenspiel - Sokoban.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Konsolenspiel - Sokoban.pdb
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Sokoban.csproj.CoreCompileInputs.cache
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Konsolenspiel - Sokoban.exe
+G:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Konsolenspiel - Sokoban.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Konsolenspiel - Sokoban.exe.config
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Konsolenspiel - Sokoban.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\bin\Debug\Konsolenspiel - Sokoban.pdb
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Sokoban.csproj.AssemblyReference.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Sokoban.csproj.CoreCompileInputs.cache
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Konsolenspiel - Sokoban.exe
+D:\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Konsolenspiel - Sokoban.pdb

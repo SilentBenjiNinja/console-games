@@ -18,7 +18,7 @@ namespace Games.YourGamesName
         bool gameOver = false;
 
         // for this demo
-        Random randy;
+        Random randy = new Random();
 
         static void Main(string[] args)
         {
@@ -111,8 +111,6 @@ namespace Games.YourGamesName
 
             // whatever happens before the game can be played
             Console.WriteLine("setting up game...");
-
-            randy = new Random();
         }
 
     }

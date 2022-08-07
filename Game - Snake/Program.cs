@@ -19,7 +19,6 @@ namespace Games.Snake
         const int DT = 1000 / FRAMERATE;
 
         bool inputForFrame = false;
-        object @lock = new { };
         Random randy = new Random();
 
         static void Main(string[] args)

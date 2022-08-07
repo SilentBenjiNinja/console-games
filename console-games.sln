@@ -31,7 +31,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Challenge - Maze Generation
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game - Tetris", "Game - Tetris\Game - Tetris.csproj", "{C8FD4305-224F-47B3-919B-0EA4BFA2C5FA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Games-Stencil", "Games-Stencil\Games-Stencil.csproj", "{FE874948-4ED9-4B8A-B42E-568CCB14D7B5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game-Boilerplate", "Games-Stencil\Game-Boilerplate.csproj", "{FE874948-4ED9-4B8A-B42E-568CCB14D7B5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

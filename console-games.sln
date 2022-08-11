@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game - Tetris", "Game - Tet
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game-Boilerplate", "Games-Stencil\Game-Boilerplate.csproj", "{FE874948-4ED9-4B8A-B42E-568CCB14D7B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Game-Tick-Boilerplate", "Game-Tick-Boilerplate\Game-Tick-Boilerplate.csproj", "{A90A4650-2E43-4F9E-BF9B-A3222423DEFD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -95,6 +97,10 @@ Global
 		{FE874948-4ED9-4B8A-B42E-568CCB14D7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FE874948-4ED9-4B8A-B42E-568CCB14D7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FE874948-4ED9-4B8A-B42E-568CCB14D7B5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A90A4650-2E43-4F9E-BF9B-A3222423DEFD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A90A4650-2E43-4F9E-BF9B-A3222423DEFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A90A4650-2E43-4F9E-BF9B-A3222423DEFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A90A4650-2E43-4F9E-BF9B-A3222423DEFD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

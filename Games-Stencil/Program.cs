@@ -4,13 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Games.YourGamesName
+namespace Games.UnnamedConsoleGame
 {
     class Program
     {
         const int WINDOW_WIDTH = 128;
         const int WINDOW_HEIGHT = 36;
-        const string GAME_TITLE = "UNNAMED CONSOLE WINDOW";
+        const string GAME_TITLE = "UNNAMED CONSOLE GAME WINDOW";
 
         static Program instance = new Program();
 

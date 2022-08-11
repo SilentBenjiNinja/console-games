@@ -11,3 +11,10 @@ C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Soun
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.csproj.CoreCompileInputs.cache
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.exe
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Test - Sounds\obj\Debug\Test - Sounds.pdb
+D:\Git\console-games\Test - Sounds\bin\Debug\Test - Sounds.exe.config
+D:\Git\console-games\Test - Sounds\bin\Debug\Test - Sounds.exe
+D:\Git\console-games\Test - Sounds\bin\Debug\Test - Sounds.pdb
+D:\Git\console-games\Test - Sounds\obj\Debug\Test - Sounds.csproj.AssemblyReference.cache
+D:\Git\console-games\Test - Sounds\obj\Debug\Test - Sounds.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Test - Sounds\obj\Debug\Test - Sounds.exe
+D:\Git\console-games\Test - Sounds\obj\Debug\Test - Sounds.pdb

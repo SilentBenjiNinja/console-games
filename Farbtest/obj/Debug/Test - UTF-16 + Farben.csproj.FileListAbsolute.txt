@@ -12,3 +12,10 @@ D:\Git\folder\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.AssemblyReference
 D:\Git\folder\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.CoreCompileInputs.cache
 D:\Git\folder\Farbtest\obj\Debug\Farbtest.exe
 D:\Git\folder\Farbtest\obj\Debug\Farbtest.pdb
+D:\Git\console-games\Farbtest\bin\Debug\Farbtest.exe.config
+D:\Git\console-games\Farbtest\bin\Debug\Farbtest.exe
+D:\Git\console-games\Farbtest\bin\Debug\Farbtest.pdb
+D:\Git\console-games\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.AssemblyReference.cache
+D:\Git\console-games\Farbtest\obj\Debug\Test - UTF-16 + Farben.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Farbtest\obj\Debug\Farbtest.exe
+D:\Git\console-games\Farbtest\obj\Debug\Farbtest.pdb

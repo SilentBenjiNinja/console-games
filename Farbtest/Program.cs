@@ -87,7 +87,7 @@ namespace UTF16_Farben
 
             Console.SetWindowSize(Console.LargestWindowWidth, Console.LargestWindowHeight);
             Console.Title = "UTF-8";
-            Console.WriteLine("UTF-8");
+            Console.WriteLine("Colors / UTF-8");
             Console.OutputEncoding = Encoding.Unicode;
 
             for (uint i = 0; i < 1 << 14; i++)
@@ -97,7 +97,7 @@ namespace UTF16_Farben
                 if (nonDisplayable.Contains(i)) character = (char)0x258C;
 
                 Console.ForegroundColor = (ConsoleColor)(i % 16);
-                Console.BackgroundColor = i % 16 < 2 ? ConsoleColor.White : ConsoleColor.Black;
+                Console.BackgroundColor = i % 16 < 8 ? ConsoleColor.DarkGray : ConsoleColor.Black;
 
                 if (i % 16 == 0) Console.WriteLine();
 

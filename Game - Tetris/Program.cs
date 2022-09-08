@@ -445,7 +445,7 @@ namespace Games.Tetris
         {
             List<int> clearableLines = new List<int>();
 
-            // check only for lines in previously placed 
+            // check only for lines where piece was placed
             for (int y = 0; y < 4; y++)
             {
                 int line = prevY[y];

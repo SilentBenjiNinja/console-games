@@ -6,6 +6,9 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
+
+// TODO: generate maze, THEN put in start and finish
+// TODO: debug: total node amount, pathfind efficiency (path length / walked nodes), status of maze gen / pathfinding (generating 55/100 (55%), amount of tunnelers, amount of open nodes, nodes walked 5/100 (5%))
 namespace Maze_Generation
 {
     class Program

@@ -10,7 +10,6 @@ namespace Games.Tetris
     /*
      * TODO: score for every continuous soft-dropped grid space
      * TODO: level color change in statistics
-     * TODO: uncommonly multi-line-clear with gaps leaves a black line
      * TODO: refactor inputs for Delayed Auto Shift
      * and Button Up / Down Recognition (Rotation)
      */
@@ -68,10 +67,12 @@ namespace Games.Tetris
         Random randy = new Random();
 
         const int FRAME_RATE = 60;
-        int FrameTime => (1000 / FRAME_RATE);
 
         int currentFrame;
+
         int lastTickFrame;
+
+        int FrameTime => (1000 / FRAME_RATE);
 
         int currentLines;
         int CurrentLines
@@ -79,13 +80,12 @@ namespace Games.Tetris
             get => currentLines;
             set
             {
-                if (value >= (currentLevel + 1) * 10)
+                if (value >= (CurrentLevel + 1) * 10)
                     CurrentLevel++;
 
                 currentLines = value;
 
-                lock (cursorLock)
-                    WriteTextToPos(CurrentLines.ToString().PadLeft(3, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + BOARD_WIDTH * 2 - 4, TITLE_PANEL_HEIGHT - 2);
+                RefreshLinesCleared();
             }
         }
 
@@ -97,11 +97,8 @@ namespace Games.Tetris
             {
                 currentLevel = value;
 
-                lock (cursorLock)
-                {
-                    DrawGameBoard();
-                    RefreshLevel();
-                }
+                DrawGameBoard();
+                RefreshLevel();
             }
         }
 
@@ -117,6 +114,12 @@ namespace Games.Tetris
         }
         int[] lineScoreMultipliers = new int[4] { 40, 100, 300, 1200 };
 
+        int[] LevelDropSpeeds = {
+            48, 43, 38, 33, 28, 23, 18, 13, 8, 6,
+            5,  5,  5,  4,  4,  4,  3,  3,  3, 2,
+            2,  2,  2,  2,  2,  2,  2,  2,  2, 1,
+        };
+
         int[] EntryDelaysByLastLockedY =
         {
             18,18,18,18,18,18,
@@ -125,14 +128,8 @@ namespace Games.Tetris
             12,12,12,12,
             10,10,
         };
-
-        int[] LevelDropSpeeds = {
-            48, 43, 38, 33, 28, 23, 18, 13, 8, 6,
-            5,  5,  5,  4,  4,  4,  3,  3,  3, 2,
-            2,  2,  2,  2,  2,  2,  2,  2,  2, 1,
-        };
         int SoftDropSpeed => Math.Min(2, DropSpeed);
-        int DropSpeed => LevelDropSpeeds[currentLevel < 30 ? currentLevel : 29];
+        int DropSpeed => LevelDropSpeeds[CurrentLevel < 30 ? CurrentLevel : 29];
         int CurrentDropSpeed => currentInput != Inputs.Down ? DropSpeed : SoftDropSpeed;
 
         enum Inputs { None, Up, Left, Down, Right }
@@ -202,7 +199,7 @@ namespace Games.Tetris
                         if (!Overlapping(currentPieceId, CurrentX + 1, CurrentY, CurrentRotation))
                             CurrentX++;
 
-                    if (/*currentInput == Inputs.Down || */currentFrame - lastTickFrame >= CurrentDropSpeed)
+                    if (currentFrame - lastTickFrame >= CurrentDropSpeed)
                     {
                         lastTickFrame = currentFrame;
 
@@ -278,6 +275,9 @@ namespace Games.Tetris
                             TickFrame(EntryDelaysByLastLockedY[lastLockedY]);
 
                             NewPiece();
+
+                            // TODO: remove this + find out why locked piece is overdrawn
+                            //DrawGameBoard();
                         }
                     }
 
@@ -474,9 +474,9 @@ namespace Games.Tetris
             }
 
             currentPieceId = NextPieceId;
-            currentRotation = 0;
-            currentX = pieces[currentPieceId].large ? 3 : 4;
-            currentY = currentPieceId == 6 ? -2 : -1;
+            CurrentRotation = 0;
+            CurrentX = pieces[currentPieceId].large ? 3 : 4;
+            CurrentY = currentPieceId == 6 ? -2 : -1;
             DrawPiece();
 
             NextPieceId = randy.Next(0, 7);
@@ -571,28 +571,35 @@ namespace Games.Tetris
 
         void RefreshPieceStat(int pieceId)
         {
-            DrawPieceToUi(pieceId, 3, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
-            WriteTextToPos(pieceStatistics[pieceId].ToString().PadLeft(3, '0'), 13, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
+            lock (cursorLock)
+            {
+                DrawPieceToUi(pieceId, 3, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
+                WriteTextToPos(pieceStatistics[pieceId].ToString().PadLeft(3, '0'), 13, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
+            }
         }
 
         void RefreshLinesCleared()
         {
-            WriteTextToPos(CurrentLines.ToString().PadLeft(3, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + BOARD_WIDTH * 2 - 4, TITLE_PANEL_HEIGHT - 2);
+            lock (cursorLock)
+                WriteTextToPos(CurrentLines.ToString().PadLeft(3, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + BOARD_WIDTH * 2 - 4, TITLE_PANEL_HEIGHT - 2);
         }
 
         void RefreshNextPiece()
         {
-            DrawPieceToUi(nextPieceId, SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 2, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 6);
+            lock (cursorLock)
+                DrawPieceToUi(nextPieceId, SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 2, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 6);
         }
 
         void RefreshLevel()
         {
-            WriteTextToPos(CurrentLevel.ToString().PadLeft(2, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 5, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 12);
+            lock (cursorLock)
+                WriteTextToPos(CurrentLevel.ToString().PadLeft(2, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 5, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 12);
         }
 
         void RefreshScore()
         {
-            WriteTextToPos(Score.ToString().PadLeft(6, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT + 2);
+            lock (cursorLock)
+                WriteTextToPos(Score.ToString().PadLeft(6, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT + 2);
         }
 
         // pieces in UI display:

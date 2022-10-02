@@ -1,7 +1,6 @@
 D:\Git\console-games\Game - Tetris\bin\Debug\Game - Tetris.exe.config
 D:\Git\console-games\Game - Tetris\bin\Debug\Game - Tetris.exe
 D:\Git\console-games\Game - Tetris\bin\Debug\Game - Tetris.pdb
-D:\Git\console-games\Game - Tetris\obj\Debug\Game - Tetris.csproj.AssemblyReference.cache
 D:\Git\console-games\Game - Tetris\obj\Debug\Game - Tetris.csproj.CoreCompileInputs.cache
 D:\Git\console-games\Game - Tetris\obj\Debug\Game - Tetris.exe
 D:\Git\console-games\Game - Tetris\obj\Debug\Game - Tetris.pdb

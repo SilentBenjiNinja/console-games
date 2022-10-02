@@ -11,6 +11,7 @@ namespace Games.Tetris
 {
     /*
      * TODO: scoring system
+     * TODO: statistics
      * TODO: refactor inputs for Delayed Auto Shift
      * and Button Up / Down Recognition (Rotation)
      */

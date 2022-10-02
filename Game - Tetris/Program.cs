@@ -10,8 +10,9 @@ using System.Threading.Tasks;
 namespace Games.Tetris
 {
     /*
-     * TODO: refactor gameplay loop
      * TODO: scoring system
+     * TODO: refactor inputs for Delayed Auto Shift
+     * and Button Up / Down Recognition (Rotation)
      */
 
     struct Piece
@@ -75,7 +76,6 @@ namespace Games.Tetris
         const int FRAME_RATE = 60;
 
         int currentFrame;
-        int currentTick;
 
         enum Inputs { None, Up, Left, Down, Right }
         Inputs currentInput;
@@ -129,12 +129,11 @@ namespace Games.Tetris
             10,10,
         };
 
-        int SoftDropSpeed => currentLevel >= 19 ? 1 : 2;
+        int SoftDropSpeed => Math.Min(2, DropSpeed);
         int DropSpeed => LevelDropSpeeds[currentLevel < 30 ? currentLevel : 29];
 
         int CurrentDropSpeed => currentInput != Inputs.Down ? DropSpeed : SoftDropSpeed;
         int FrameTime => (1000 / FRAME_RATE);
-        int CurrentTickTime => CurrentDropSpeed * FrameTime;
 
         private void GameLoop()
         {
@@ -155,37 +154,17 @@ namespace Games.Tetris
         {
             gameOver = false;
 
-            //currentTick = 0;
             currentFrame = 0;
 
             CurrentLevel = 0;
             CurrentLines = 0;
 
-            gameBoard = new int[BOARD_HEIGHT, BOARD_WIDTH] {
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,0,0,0,0,0,0,0,0, },
-                { 0,0,6,0,0,0,0,0,0,0, },
-                { 0,0,5,3,5,0,0,0,0,0, },
-                { 0,3,4,0,6,4,3,4,4,4, },
-                { 0,1,1,1,7,1,1,4,5,5, },
-            };
+            gameBoard = new int[BOARD_HEIGHT, BOARD_WIDTH];
             gameTickThread = new Thread(UpdateLoopThread);
 
             DrawStats();
+
+            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH, TITLE_PANEL_HEIGHT + BORDER_HEIGHT, BOARD_WIDTH * 2, BOARD_HEIGHT);
             DrawGameBoard();
 
             NextPieceId = randy.Next(0, 7);
@@ -197,7 +176,7 @@ namespace Games.Tetris
             while (!gameOver)
             {
                 currentFrame++;
-                Thread.Sleep(FrameTime);
+                TickFrame();
 
                 lock (cursorLock)
                 {
@@ -205,16 +184,93 @@ namespace Games.Tetris
 
                     // TODO: rotating only once per button press
                     if (currentInput == Inputs.Up)
-                        RotatePiece();
+                        if (!Overlapping(currentPieceId, CurrentX, CurrentY, CurrentRotation + 1))
+                            CurrentRotation++;
 
                     // TODO: delayed auto shift (16+6)
                     if (currentInput == Inputs.Left)
-                        MoveLeft();
+                        if (!Overlapping(currentPieceId, CurrentX - 1, CurrentY, CurrentRotation))
+                            CurrentX--;
                     if (currentInput == Inputs.Right)
-                        MoveRight();
+                        if (!Overlapping(currentPieceId, CurrentX + 1, CurrentY, CurrentRotation))
+                            CurrentX++;
 
-                    if (currentInput == Inputs.Down || currentFrame - lastTickFrame >= CurrentDropSpeed)
-                        DropPiece();
+                    if (/*currentInput == Inputs.Down || */currentFrame - lastTickFrame >= CurrentDropSpeed)
+                    {
+                        lastTickFrame = currentFrame;
+
+                        if (!Overlapping(currentPieceId, CurrentX, CurrentY + 1, CurrentRotation))
+                            CurrentY++;
+                        else
+                        {
+                            // lock piece in place
+                            int pieceSize = pieces[currentPieceId].large ? 16 : 9;
+                            int lastLockedY = 0;
+
+                            for (int i = 0; i < pieceSize; i++)
+                            {
+                                if ((pieces[currentPieceId].blockMasks[CurrentRotation] >> (pieceSize - (i + 1)) & 1) == 1)     // only draw if not empty space
+                                {
+                                    int px = CurrentX + (int)(i % Math.Sqrt(pieceSize));
+                                    int py = CurrentY + (int)(i / Math.Sqrt(pieceSize));
+
+                                    gameBoard[py, px] = currentPieceId + 1;
+
+                                    lastLockedY = Math.Max(py, lastLockedY);
+                                }
+                            }
+
+                            List<int> clearableLines = new List<int>();
+
+                            // check only for lines where piece was placed
+                            for (int prevYId = 0; prevYId < 4; prevYId++)
+                            {
+                                int lineY = prevY[prevYId];
+
+                                if (!clearableLines.Contains(lineY))
+                                {
+                                    bool isLineClearable = true;
+
+                                    for (int x = 0; x < BOARD_WIDTH; x++)
+                                        isLineClearable &= gameBoard[lineY, x] > 0;
+
+                                    if (isLineClearable)
+                                        clearableLines.Add(lineY);
+                                }
+                            }
+
+                            // clear line
+                            if (clearableLines.Count > 0)
+                            {
+                                int lowestRow = 0;
+                                foreach (var item in clearableLines)
+                                    lowestRow = Math.Max(lowestRow, item);
+
+                                for (int clearY = lowestRow; clearY >= clearableLines.Count; clearY--)
+                                {
+                                    int nextY = clearY - clearableLines.Count;
+                                    while (clearableLines.Contains(nextY))
+                                    {
+                                        nextY++;
+                                    }
+
+                                    for (int x = 0; x < BOARD_WIDTH; x++)
+                                    {
+                                        gameBoard[clearY, x] = gameBoard[nextY, x];
+                                        gameBoard[nextY, x] = 0;
+                                    }
+                                }
+
+                                CurrentLines += clearableLines.Count;
+
+                                DrawGameBoard(lowestRow + 1);
+                            }
+
+                            TickFrame(EntryDelaysByLastLockedY[lastLockedY]);
+
+                            NewPiece();
+                        }
+                    }
 
                     currentInput = Inputs.None;
                 }
@@ -370,6 +426,8 @@ namespace Games.Tetris
             }
         }
 
+        private void TickFrame(int frames = 1) => Thread.Sleep(FrameTime * frames);
+
         private bool Overlapping(int id, int x, int y, int rot)
         {
             int iterations = pieces[id].large ? 16 : 9;
@@ -390,93 +448,6 @@ namespace Games.Tetris
                         return true;
             }
             return false;
-        }
-
-        private void RotatePiece()
-        {
-            if (!Overlapping(currentPieceId, CurrentX, CurrentY, CurrentRotation + 1))
-                CurrentRotation++;
-        }
-
-        private void MoveLeft()
-        {
-            if (!Overlapping(currentPieceId, CurrentX - 1, CurrentY, CurrentRotation))
-                CurrentX--;
-        }
-
-        private void MoveRight()
-        {
-            if (!Overlapping(currentPieceId, CurrentX + 1, CurrentY, CurrentRotation))
-                CurrentX++;
-        }
-
-        private void DropPiece()
-        {
-            lastTickFrame = currentFrame;
-
-            if (!Overlapping(currentPieceId, CurrentX, CurrentY + 1, CurrentRotation))
-                CurrentY++;
-            else
-                LockPiece();
-        }
-
-        private void LockPiece()
-        {
-            int iterations = pieces[currentPieceId].large ? 16 : 9;
-
-            for (int i = 0; i < iterations; i++)
-            {
-                if ((pieces[currentPieceId].blockMasks[CurrentRotation] >> (iterations - (i + 1)) & 1) == 1)     // only draw if not empty space
-                {
-                    int px = CurrentX + (int)(i % Math.Sqrt(iterations));
-                    int py = CurrentY + (int)(i / Math.Sqrt(iterations));
-
-                    gameBoard[py, px] = currentPieceId + 1;
-                }
-            }
-
-            CheckForLineClears();
-
-            // TODO: spawn delay
-            NewPiece();
-        }
-
-        private void CheckForLineClears()
-        {
-            List<int> clearableLines = new List<int>();
-
-            // check only for lines where piece was placed
-            for (int y = 0; y < 4; y++)
-            {
-                int line = prevY[y];
-
-                if (!clearableLines.Contains(line))
-                {
-                    bool isLineClearable = true;
-
-                    for (int x = 0; x < BOARD_WIDTH; x++)
-                        isLineClearable &= gameBoard[y, x] > 0;
-
-                    if (isLineClearable)
-                        clearableLines.Add(line);
-                }
-            }
-
-            int lowestRow = 0;
-            foreach (var item in clearableLines)
-                lowestRow = Math.Min(lowestRow, item);
-
-            for (int nY = lowestRow; nY >= clearableLines.Count; nY--)
-            {
-                for (int x = 0; x < BOARD_WIDTH; x++)
-                {
-                    gameBoard[nY, x] = gameBoard[nY - clearableLines.Count, x];
-                    gameBoard[nY - clearableLines.Count, x] = 0;
-                }
-            }
-
-            //DrawGameBoard(lowestRow + 1);
-            DrawGameBoard();
         }
 
         private void NewPiece()
@@ -533,8 +504,6 @@ namespace Games.Tetris
 
         private void DrawGameBoard(int maxRow = BOARD_HEIGHT)
         {
-            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH, TITLE_PANEL_HEIGHT + BORDER_HEIGHT, BOARD_WIDTH * 2, BOARD_HEIGHT);
-
             if (gameBoard != null)
                 for (int y = 0; y < maxRow; y++)
                     for (int x = 0; x < BOARD_WIDTH; x++)

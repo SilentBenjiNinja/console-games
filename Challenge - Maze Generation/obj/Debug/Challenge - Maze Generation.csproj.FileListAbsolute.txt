@@ -19,3 +19,10 @@ D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Challenge - M
 D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Challenge - Maze Generation\obj\Debug\Challenge - Maze Generation.csproj.CoreCompileInputs.cache
 D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Challenge - Maze Generation\obj\Debug\Challenge - Maze Generation.exe
 D:\Dropbox\Wichtiges\# Career\Arbeitslosigkeit\IBB\IBB CSharp Kurs\Challenge - Maze Generation\obj\Debug\Challenge - Maze Generation.pdb
+D:\Git\console-games\Challenge - Maze Generation\bin\Debug\Challenge - Maze Generation.exe.config
+D:\Git\console-games\Challenge - Maze Generation\bin\Debug\Challenge - Maze Generation.exe
+D:\Git\console-games\Challenge - Maze Generation\bin\Debug\Challenge - Maze Generation.pdb
+D:\Git\console-games\Challenge - Maze Generation\obj\Debug\Challenge - Maze Generation.csproj.AssemblyReference.cache
+D:\Git\console-games\Challenge - Maze Generation\obj\Debug\Challenge - Maze Generation.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Challenge - Maze Generation\obj\Debug\Challenge - Maze Generation.exe
+D:\Git\console-games\Challenge - Maze Generation\obj\Debug\Challenge - Maze Generation.pdb

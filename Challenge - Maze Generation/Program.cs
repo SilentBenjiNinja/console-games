@@ -27,13 +27,17 @@ namespace Maze_Generation
 
         const bool FILL_EMPTY_SPACES = true;
 
-        const bool RANDOMIZE_START = true;
-        const bool RANDOMIZE_END = true;
+        const bool RANDOM_GENESIS = true;
+        const bool RANDOM_START = true;
+        const bool RANDOM_TARGET = true;
+        Int2 genesisPos = new Int2 { x = 0, y = H - 1 };
         Int2 startPos = new Int2 { x = 0, y = H - 1 };
-        Int2 endPos = new Int2 { x = W - 1, y = 0 };
+        Int2 targetPos = new Int2 { x = W - 1, y = 0 };
 
+        CrossNode genesisNode;
         CrossNode startNode;
-        CrossNode endNode;
+        CrossNode targetNode;
+
         CrossNodeSet set;
 
         bool[,] halls;
@@ -70,25 +74,29 @@ namespace Maze_Generation
                 for (int j = 0; j < H; j++)
                     FillTile(new Int2 { x = i * 2, y = j * 2 }, ConsoleColor.DarkBlue);
 
-            if (RANDOMIZE_START)
+            if (RANDOM_GENESIS)
+                genesisPos = new Int2 { x = randy.Next(W), y = randy.Next(H) };
+
+            if (RANDOM_START)
                 startPos = new Int2 { x = randy.Next(W), y = randy.Next(H) };
 
-            if (RANDOMIZE_END)
-                endPos = new Int2 { x = randy.Next(W), y = randy.Next(H) };
+            if (RANDOM_TARGET)
+                targetPos = new Int2 { x = randy.Next(W), y = randy.Next(H) };
+
+            genesisNode = new CrossNode(genesisPos);
+            FillTile(genesisNode.AbsPos, ConsoleColor.Cyan);
 
             startNode = new CrossNode(startPos);
-            FillTile(startNode.AbsPos, ConsoleColor.Green);
 
-            endNode = new CrossNode(endPos);
-            FillTile(endNode.AbsPos, ConsoleColor.Magenta);
+            targetNode = new CrossNode(targetPos);
         }
 
         private void Generate()
         {
-            set = new CrossNodeSet(W, H, startNode, endNode);
+            set = new CrossNodeSet(W, H, genesisNode, targetNode);
 
             // add start point to open cross nodes
-            set.OpenNodes.Add(startNode);
+            set.OpenNodes.Add(genesisNode);
 
             // repeat until all cross nodes are handled:
             while (set.ClosedNodes.Count < W * H)
@@ -138,8 +146,8 @@ namespace Maze_Generation
             }
 
             // overpaint start and end
-            FillTile(startNode.AbsPos, ConsoleColor.Green);
-            FillTile(endNode.AbsPos, ConsoleColor.Magenta);
+            FillTile(startNode.AbsPos, ConsoleColor.DarkGreen);
+            FillTile(targetNode.AbsPos, ConsoleColor.Magenta);
         }
 
         public Int2 GetHallFromWalker(Walker w)
@@ -197,7 +205,7 @@ namespace Maze_Generation
         private void Solve()
         {
             PathNode startTile = new PathNode { pos = startNode.AbsPos };
-            PathNode endTile = new PathNode { pos = endNode.AbsPos };
+            PathNode targetTile = new PathNode { pos = targetNode.AbsPos };
 
             startTile.GCost = 0;
 
@@ -217,12 +225,14 @@ namespace Maze_Generation
                 closed.Add(currentTile);
 
                 Thread.Sleep(DT);
-                FillTile(currentTile.pos, ConsoleColor.Green, false);
 
-                if (currentTile.Equals(endTile))
+                if (!currentTile.Equals(startTile))
+                    FillTile(currentTile.pos, ConsoleColor.Green, false);
+
+                if (currentTile.Equals(targetTile))
                 {
                     // solved
-                    endTile = currentTile;
+                    targetTile = currentTile;
 
                     Thread.Sleep(DT);
                     FillTile(currentTile.pos, ConsoleColor.DarkMagenta, false);
@@ -269,7 +279,7 @@ namespace Maze_Generation
             // G and H cost are measured in Euclidian distance in this case
             public int FCost => GCost + 2 * HCost;
             public int GCost { get; set; }
-            public int HCost => (int)pos.Dist(instance.endNode.AbsPos);
+            public int HCost => (int)pos.Dist(instance.targetNode.AbsPos);
 
             public bool Traversible => instance.halls[pos.x, pos.y];
 

@@ -9,7 +9,6 @@ namespace Games.Tetris
 {
     /*
      * TODO: score for every continuous soft-dropped grid space
-     * TODO: level color change in statistics
      * TODO: uncommonly multi-line-clear with gaps leaves a black line
      * TODO: refactor inputs for Delayed Auto Shift
      * and Button Up / Down Recognition (Rotation)
@@ -202,7 +201,7 @@ namespace Games.Tetris
                         if (!Overlapping(currentPieceId, CurrentX + 1, CurrentY, CurrentRotation))
                             CurrentX++;
 
-                    if (/*currentInput == Inputs.Down || */currentFrame - lastTickFrame >= CurrentDropSpeed)
+                    if (currentFrame - lastTickFrame >= CurrentDropSpeed)
                     {
                         lastTickFrame = currentFrame;
 
@@ -563,15 +562,18 @@ namespace Games.Tetris
             DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH, TITLE_PANEL_HEIGHT + BORDER_HEIGHT, BOARD_WIDTH * 2, BOARD_HEIGHT);
 
             // DEBUG
-            WriteTextToPos("DEBUG:", 2, WindowHeight - 5, ConsoleColor.White, ConsoleColor.Black);
-            WriteTextToPos("Input: N/A", 2, WindowHeight - 4);
-            WriteTextToPos("Frame 0", 2, WindowHeight - 3);
-            WriteTextToPos("Tick 0", 2, WindowHeight - 2);
+            WriteTextToPos("DEBUG:", 2, WindowHeight - 4, ConsoleColor.White, ConsoleColor.Black);
+            WriteTextToPos("Input: N/A", 2, WindowHeight - 3);
+            WriteTextToPos("Frame 0", 2, WindowHeight - 2);
+        }
+
+        void DrawPieceStatUi(int pieceId)
+        {
+            DrawPieceToUi(pieceId, 3, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
         }
 
         void RefreshPieceStat(int pieceId)
         {
-            DrawPieceToUi(pieceId, 3, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
             WriteTextToPos(pieceStatistics[pieceId].ToString().PadLeft(3, '0'), 13, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
         }
 
@@ -588,6 +590,9 @@ namespace Games.Tetris
         void RefreshLevel()
         {
             WriteTextToPos(CurrentLevel.ToString().PadLeft(2, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 5, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 12);
+
+            for (int i = 0; i < 7; i++)
+                DrawPieceStatUi(i);
         }
 
         void RefreshScore()

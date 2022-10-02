@@ -1,26 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Threading;
-using System.Threading.Tasks;
 
 // https://tildesites.bowdoin.edu/~echown/courses/210/javalab9/TetrisAssignment.pdf
 // https://tetris.fandom.com/wiki/Tetris_(NES,_Nintendo)
 namespace Games.Tetris
 {
     /*
-     * TODO: scoring system
-     * TODO: statistics
+     * TODO: score for every continuous soft-dropped grid space
+     * TODO: level color change in statistics
      * TODO: refactor inputs for Delayed Auto Shift
      * and Button Up / Down Recognition (Rotation)
      */
-
-    struct Piece
-    {
-        public bool large;
-        public ushort[] blockMasks;
-    }
 
     class Program
     {
@@ -55,7 +47,7 @@ namespace Games.Tetris
             instance.StartProgram();
         }
 
-        private void StartProgram()
+        void StartProgram()
         {
             isRunning = true;
 
@@ -78,10 +70,9 @@ namespace Games.Tetris
 
         int currentFrame;
 
-        enum Inputs { None, Up, Left, Down, Right }
-        Inputs currentInput;
-
         int lastTickFrame;
+
+        int FrameTime => (1000 / FRAME_RATE);
 
         int currentLines;
         int CurrentLines
@@ -89,13 +80,12 @@ namespace Games.Tetris
             get => currentLines;
             set
             {
-                if (value >= (currentLevel + 1) * 10)
+                if (value >= (CurrentLevel + 1) * 10)
                     CurrentLevel++;
 
                 currentLines = value;
 
-                lock (cursorLock)
-                    WriteTextToPos(CurrentLines.ToString().PadLeft(3, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + BOARD_WIDTH * 2 - 4, TITLE_PANEL_HEIGHT - 2);
+                RefreshLinesCleared();
             }
         }
 
@@ -107,13 +97,22 @@ namespace Games.Tetris
             {
                 currentLevel = value;
 
-                lock (cursorLock)
-                {
-                    DrawGameBoard();
-                    WriteTextToPos(CurrentLevel.ToString().PadLeft(2, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 8, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 15);
-                }
+                DrawGameBoard();
+                RefreshLevel();
             }
         }
+
+        int score;
+        int Score
+        {
+            get => score;
+            set
+            {
+                score = value;
+                RefreshScore();
+            }
+        }
+        int[] lineScoreMultipliers = new int[4] { 40, 100, 300, 1200 };
 
         int[] LevelDropSpeeds = {
             48, 43, 38, 33, 28, 23, 18, 13, 8, 6,
@@ -129,14 +128,14 @@ namespace Games.Tetris
             12,12,12,12,
             10,10,
         };
-
         int SoftDropSpeed => Math.Min(2, DropSpeed);
-        int DropSpeed => LevelDropSpeeds[currentLevel < 30 ? currentLevel : 29];
-
+        int DropSpeed => LevelDropSpeeds[CurrentLevel < 30 ? CurrentLevel : 29];
         int CurrentDropSpeed => currentInput != Inputs.Down ? DropSpeed : SoftDropSpeed;
-        int FrameTime => (1000 / FRAME_RATE);
 
-        private void GameLoop()
+        enum Inputs { None, Up, Left, Down, Right }
+        Inputs currentInput;
+
+        void GameLoop()
         {
             SetupGame();
 
@@ -151,28 +150,32 @@ namespace Games.Tetris
                     return;
         }
 
-        private void SetupGame()
+        void SetupGame()
         {
             gameOver = false;
 
             currentFrame = 0;
+            lastTickFrame = 0;
 
             CurrentLevel = 0;
             CurrentLines = 0;
+
+            Score = 0;
+
+            pieceStatistics = new int[7];
 
             gameBoard = new int[BOARD_HEIGHT, BOARD_WIDTH];
             gameTickThread = new Thread(UpdateLoopThread);
 
             DrawStats();
 
-            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH, TITLE_PANEL_HEIGHT + BORDER_HEIGHT, BOARD_WIDTH * 2, BOARD_HEIGHT);
             DrawGameBoard();
 
             NextPieceId = randy.Next(0, 7);
             NewPiece();
         }
 
-        private void UpdateLoopThread()
+        void UpdateLoopThread()
         {
             while (!gameOver)
             {
@@ -196,7 +199,7 @@ namespace Games.Tetris
                         if (!Overlapping(currentPieceId, CurrentX + 1, CurrentY, CurrentRotation))
                             CurrentX++;
 
-                    if (/*currentInput == Inputs.Down || */currentFrame - lastTickFrame >= CurrentDropSpeed)
+                    if (currentFrame - lastTickFrame >= CurrentDropSpeed)
                     {
                         lastTickFrame = currentFrame;
 
@@ -264,12 +267,17 @@ namespace Games.Tetris
 
                                 CurrentLines += clearableLines.Count;
 
+                                Score += lineScoreMultipliers[clearableLines.Count - 1] * (CurrentLevel + 1);
+
                                 DrawGameBoard(lowestRow + 1);
                             }
 
                             TickFrame(EntryDelaysByLastLockedY[lastLockedY]);
 
                             NewPiece();
+
+                            // TODO: remove this + find out why locked piece is overdrawn
+                            //DrawGameBoard();
                         }
                     }
 
@@ -278,7 +286,7 @@ namespace Games.Tetris
             }
         }
 
-        private void InputLoop()
+        void InputLoop()
         {
             while (!gameOver)
             {
@@ -315,6 +323,12 @@ namespace Games.Tetris
         }
 
         #region Piece Logic
+
+        struct Piece
+        {
+            public bool large;
+            public ushort[] blockMasks;
+        }
 
         Piece[] pieces = {
             // T
@@ -375,6 +389,8 @@ namespace Games.Tetris
             },
         };
 
+        int[] pieceStatistics;
+
         int[,] gameBoard;
 
         int[] prevX = new int[4];
@@ -388,9 +404,7 @@ namespace Games.Tetris
             set
             {
                 nextPieceId = value;
-                DrawPieceToUi(nextPieceId, SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 5, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 9);
-
-
+                RefreshNextPiece();
             }
         }
 
@@ -427,9 +441,9 @@ namespace Games.Tetris
             }
         }
 
-        private void TickFrame(int frames = 1) => Thread.Sleep(FrameTime * frames);
+        void TickFrame(int frames = 1) => Thread.Sleep(FrameTime * frames);
 
-        private bool Overlapping(int id, int x, int y, int rot)
+        bool Overlapping(int id, int x, int y, int rot)
         {
             int iterations = pieces[id].large ? 16 : 9;
             rot %= pieces[id].blockMasks.Length;
@@ -451,7 +465,7 @@ namespace Games.Tetris
             return false;
         }
 
-        private void NewPiece()
+        void NewPiece()
         {
             for (int i = 0; i < 4; i++)
             {
@@ -460,12 +474,15 @@ namespace Games.Tetris
             }
 
             currentPieceId = NextPieceId;
-            currentRotation = 0;
-            currentX = pieces[currentPieceId].large ? 3 : 4;
-            currentY = currentPieceId == 6 ? -2 : -1;
+            CurrentRotation = 0;
+            CurrentX = pieces[currentPieceId].large ? 3 : 4;
+            CurrentY = currentPieceId == 6 ? -2 : -1;
             DrawPiece();
 
             NextPieceId = randy.Next(0, 7);
+
+            pieceStatistics[currentPieceId]++;
+            RefreshPieceStat(currentPieceId);
 
             if (Overlapping(currentPieceId, CurrentX, CurrentY, 0))
                 gameOver = true;
@@ -475,7 +492,7 @@ namespace Games.Tetris
 
         #region Rendering
 
-        private void DrawPiece()
+        void DrawPiece()
         {
             for (int i = 0; i < 4; i++)         // overdraw previous frame to avoid trailing
             {
@@ -503,7 +520,7 @@ namespace Games.Tetris
             }
         }
 
-        private void DrawGameBoard(int maxRow = BOARD_HEIGHT)
+        void DrawGameBoard(int maxRow = BOARD_HEIGHT)
         {
             if (gameBoard != null)
                 for (int y = 0; y < maxRow; y++)
@@ -511,33 +528,78 @@ namespace Games.Tetris
                         DrawPixelToBoard(gameBoard[y, x], x, y);
         }
 
-        private void DrawStats()
+        void DrawStats()
         {
-            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 5, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 7, 8, 5);
-            WriteTextToPos("NEXT", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 7, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 7);
-
-            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 5, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 14, 7, 2);
-            WriteTextToPos("LEVEL", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 6, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 14);
-            WriteTextToPos("00", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 8, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 15);
-
-            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH, TITLE_PANEL_HEIGHT - 2, BOARD_WIDTH * 2, 1);
-            WriteTextToPos("LINES", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + 1, TITLE_PANEL_HEIGHT - 2);
-            WriteTextToPos("000", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + BOARD_WIDTH * 2 - 4, TITLE_PANEL_HEIGHT - 2);
-
+            // piece statistics
             DrawBorders(2, TITLE_PANEL_HEIGHT - 2, (SIDE_PANEL_WIDTH - 2) * 2, BOARD_HEIGHT + TITLE_PANEL_HEIGHT - 1);
             WriteTextToPos("STATISTICS", 5, TITLE_PANEL_HEIGHT - 2);
             WriteTextToPos("----------------", 2, TITLE_PANEL_HEIGHT - 1);
             for (int i = 0; i < 7; i++)
-            {
-                DrawPieceToUi(i, 3, TITLE_PANEL_HEIGHT + i * 3 + 1);
-                WriteTextToPos("000", 13, TITLE_PANEL_HEIGHT + i * 3 + 1);
-            }
+                RefreshPieceStat(i);
+
+            // lines cleared
+            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH, TITLE_PANEL_HEIGHT - 2, BOARD_WIDTH * 2, 1);
+            WriteTextToPos("LINES", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + 1, TITLE_PANEL_HEIGHT - 2);
+            RefreshLinesCleared();
+
+            // score
+            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 2, TITLE_PANEL_HEIGHT - 2, 8, 5);
+            WriteTextToPos("TOP", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT - 2);
+            WriteTextToPos("010000", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT - 1);
+            WriteTextToPos("", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT);
+            WriteTextToPos("SCORE", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT + 1);
+            RefreshScore();
+
+            // next piece
+            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 2, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 4, 8, 5);
+            WriteTextToPos("NEXT", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 4, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 4);
+
+            // level
+            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 2, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 11, 7, 2);
+            WriteTextToPos("LEVEL", SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 11);
+            RefreshLevel();
+
+            // game borders
+            DrawBorders(SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH, TITLE_PANEL_HEIGHT + BORDER_HEIGHT, BOARD_WIDTH * 2, BOARD_HEIGHT);
 
             // DEBUG
             WriteTextToPos("DEBUG:", 2, WindowHeight - 5, ConsoleColor.White, ConsoleColor.Black);
             WriteTextToPos("Input: N/A", 2, WindowHeight - 4);
             WriteTextToPos("Frame 0", 2, WindowHeight - 3);
             WriteTextToPos("Tick 0", 2, WindowHeight - 2);
+        }
+
+        void RefreshPieceStat(int pieceId)
+        {
+            lock (cursorLock)
+            {
+                DrawPieceToUi(pieceId, 3, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
+                WriteTextToPos(pieceStatistics[pieceId].ToString().PadLeft(3, '0'), 13, TITLE_PANEL_HEIGHT + pieceId * 3 + 1);
+            }
+        }
+
+        void RefreshLinesCleared()
+        {
+            lock (cursorLock)
+                WriteTextToPos(CurrentLines.ToString().PadLeft(3, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH + BOARD_WIDTH * 2 - 4, TITLE_PANEL_HEIGHT - 2);
+        }
+
+        void RefreshNextPiece()
+        {
+            lock (cursorLock)
+                DrawPieceToUi(nextPieceId, SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 2, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 6);
+        }
+
+        void RefreshLevel()
+        {
+            lock (cursorLock)
+                WriteTextToPos(CurrentLevel.ToString().PadLeft(2, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 5, TITLE_PANEL_HEIGHT + BORDER_HEIGHT + 12);
+        }
+
+        void RefreshScore()
+        {
+            lock (cursorLock)
+                WriteTextToPos(Score.ToString().PadLeft(6, '0'), SIDE_PANEL_WIDTH * 2 + BORDER_WIDTH * 2 + BOARD_WIDTH * 2 + 3, TITLE_PANEL_HEIGHT + 2);
         }
 
         // pieces in UI display:
@@ -564,7 +626,7 @@ namespace Games.Tetris
             { ConsoleColor.Red, ConsoleColor.DarkYellow },
         };
 
-        private void DrawPieceToUi(int id, int x, int y)
+        void DrawPieceToUi(int id, int x, int y)
         {
             ConsoleColor color = ConsoleColor.White;
             if (id % 3 > 0)
@@ -574,7 +636,7 @@ namespace Games.Tetris
             WriteTextToPos(uiPieces[id, 1], x, y + 1, ConsoleColor.Black, color);
         }
 
-        private void DrawPixelToBoard(int blockIndex, int x, int y)
+        void DrawPixelToBoard(int blockIndex, int x, int y)
         {
             if (x < 0 || x >= BOARD_WIDTH || y < 0 || y >= BOARD_HEIGHT)
                 return;
@@ -604,7 +666,7 @@ namespace Games.Tetris
         #region Helpers
 
         // draws a border around a specified rectangle (in cursor coordinates)
-        private void DrawBorders(int x, int y, int w, int h)
+        void DrawBorders(int x, int y, int w, int h)
         {
             WriteTextToPos('╔' + new string('═', w) + '╗', x - BORDER_WIDTH, y - BORDER_HEIGHT);
 
@@ -615,7 +677,7 @@ namespace Games.Tetris
         }
 
         // writes the text to the specified position with the specified colors
-        private void WriteTextToPos(string text, int x, int y, ConsoleColor bgColor = ConsoleColor.Black, ConsoleColor fgColor = ConsoleColor.Gray)
+        void WriteTextToPos(string text, int x, int y, ConsoleColor bgColor = ConsoleColor.Black, ConsoleColor fgColor = ConsoleColor.Gray)
         {
             Console.SetCursorPosition(x, y);
             Console.BackgroundColor = bgColor;

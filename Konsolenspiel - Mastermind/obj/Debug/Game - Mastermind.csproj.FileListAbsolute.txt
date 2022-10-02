@@ -12,3 +12,10 @@ C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - 
 C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Game - Mastermind.csproj.CoreCompileInputs.cache
 C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Game - Mastermind.exe
 C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Konsolenspiel - Mastermind\obj\Debug\Game - Mastermind.pdb
+D:\Git\console-games\Konsolenspiel - Mastermind\bin\Debug\Game - Mastermind.exe.config
+D:\Git\console-games\Konsolenspiel - Mastermind\bin\Debug\Game - Mastermind.exe
+D:\Git\console-games\Konsolenspiel - Mastermind\bin\Debug\Game - Mastermind.pdb
+D:\Git\console-games\Konsolenspiel - Mastermind\obj\Debug\Game - Mastermind.csproj.AssemblyReference.cache
+D:\Git\console-games\Konsolenspiel - Mastermind\obj\Debug\Game - Mastermind.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Konsolenspiel - Mastermind\obj\Debug\Game - Mastermind.exe
+D:\Git\console-games\Konsolenspiel - Mastermind\obj\Debug\Game - Mastermind.pdb

@@ -1,9 +1,7 @@
 ﻿using Games.Sokoban.Properties;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 
 // TODO: auto-save & load
 // TODO: helper function for aligning stuff in center

@@ -11,3 +11,10 @@ C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\obj\Debug
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\obj\Debug\Game - TicTacToe.csproj.CoreCompileInputs.cache
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\obj\Debug\Game - TicTacToe.exe
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - TicTacToe\obj\Debug\Game - TicTacToe.pdb
+D:\Git\console-games\Konsolenspiel - TicTacToe\bin\Debug\Game - TicTacToe.exe.config
+D:\Git\console-games\Konsolenspiel - TicTacToe\bin\Debug\Game - TicTacToe.exe
+D:\Git\console-games\Konsolenspiel - TicTacToe\bin\Debug\Game - TicTacToe.pdb
+D:\Git\console-games\Konsolenspiel - TicTacToe\obj\Debug\Game - TicTacToe.csproj.AssemblyReference.cache
+D:\Git\console-games\Konsolenspiel - TicTacToe\obj\Debug\Game - TicTacToe.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Konsolenspiel - TicTacToe\obj\Debug\Game - TicTacToe.exe
+D:\Git\console-games\Konsolenspiel - TicTacToe\obj\Debug\Game - TicTacToe.pdb

@@ -1,7 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
 
 namespace Games.Snake
@@ -21,20 +19,17 @@ namespace Games.Snake
         bool inputForFrame = false;
         Random randy = new Random();
 
-        static void Main(string[] args)
-        {
-            instance.Start();
-        }
+        static void Main(string[] args) => instance.Start();
 
         void Start()
         {
+            Console.Title = "SNAKE";
             Console.SetWindowSize(W * 2, H);
             Console.CursorVisible = false;
 
             Setup();
 
-            Thread t = new Thread(InputLoop);
-            t.Start();
+            new Thread(InputLoop).Start();
 
             GameLoop();
         }
@@ -70,12 +65,12 @@ namespace Games.Snake
                 // check for collision
                 int nx = (x[len - 1] + W + mx) % W,
                        ny = (y[len - 1] + H + my) % H;
-                bool valid = true;
+                bool isColliding = false;
                 for (int i = 0; i < len; i++)
                     if (x[i] == nx && y[i] == ny)
-                        valid = false;
+                        isColliding = true;
 
-                if (valid)
+                if (!isColliding)
                 {
                     // push head
                     x.Add((x[len - 1] + W + mx) % W);
@@ -103,11 +98,8 @@ namespace Games.Snake
                         y.RemoveAt(0);
                     }
                 }
-                else
-                {
-                    // restart when failed
+                else   // restart when failed
                     Setup();
-                }
 
                 inputForFrame = false;
             }
@@ -116,7 +108,6 @@ namespace Games.Snake
         void InputLoop()
         {
             while (true)
-            {
                 if (!inputForFrame)
                 {
                     switch (Console.ReadKey(true).Key)
@@ -153,7 +144,6 @@ namespace Games.Snake
 
                     inputForFrame = true;
                 }
-            }
         }
 
         private void NewApple()

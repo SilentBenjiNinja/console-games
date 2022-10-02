@@ -5,3 +5,10 @@ C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Game - Snake\bin
 C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Game - Snake\obj\Debug\Game - Snake.exe
 C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Game - Snake\obj\Debug\Game - Snake.pdb
 C:\Users\rhycs\OneDrive\Dokumente\USB-Stick\IBB\IBB CSharp Kurs\Game - Snake\obj\Debug\Game - Snake.csproj.AssemblyReference.cache
+D:\Git\console-games\Game - Snake\bin\Debug\Game - Snake.exe.config
+D:\Git\console-games\Game - Snake\bin\Debug\Game - Snake.exe
+D:\Git\console-games\Game - Snake\bin\Debug\Game - Snake.pdb
+D:\Git\console-games\Game - Snake\obj\Debug\Game - Snake.csproj.AssemblyReference.cache
+D:\Git\console-games\Game - Snake\obj\Debug\Game - Snake.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Game - Snake\obj\Debug\Game - Snake.exe
+D:\Git\console-games\Game - Snake\obj\Debug\Game - Snake.pdb

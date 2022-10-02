@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Games.Mastermind
 {
@@ -37,7 +35,7 @@ namespace Games.Mastermind
         static void Main(string[] args)
         {
             Console.Title = "MASTERMIND";
-            Console.SetWindowSize(70, 60);
+            Console.SetWindowSize(70, 40);
 
             instance.PlayGame();
 

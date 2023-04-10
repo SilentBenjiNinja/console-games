@@ -46,8 +46,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ColorConfig.cs" />
+    <Compile Include="CrossNode.cs" />
+    <Compile Include="CrossNodeSet.cs" />
+    <Compile Include="Direction.cs" />
+    <Compile Include="Helper.cs" />
+    <Compile Include="Int2.cs" />
+    <Compile Include="Maze.cs" />
+    <Compile Include="MazeConfig.cs" />
+    <Compile Include="NodeColorKey.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Tunneler.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

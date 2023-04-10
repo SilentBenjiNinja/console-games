@@ -25,3 +25,12 @@ C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\G
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.CoreCompileInputs.cache
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.exe
 C:\Users\Andreas\Desktop\IBB\IBB CSharp Kurs\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.pdb
+D:\Git\console-games\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe.config
+D:\Git\console-games\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.exe
+D:\Git\console-games\Konsolenspiel - Sokoban\bin\Debug\Game - Sokoban.pdb
+D:\Git\console-games\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.AssemblyReference.cache
+D:\Git\console-games\Konsolenspiel - Sokoban\obj\Debug\Games.Sokoban.Properties.Resources.resources
+D:\Git\console-games\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.GenerateResource.cache
+D:\Git\console-games\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.exe
+D:\Git\console-games\Konsolenspiel - Sokoban\obj\Debug\Game - Sokoban.pdb

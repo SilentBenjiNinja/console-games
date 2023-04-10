@@ -5,3 +5,10 @@ D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Game - 2048.csproj.Assembl
 D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Game - 2048.csproj.CoreCompileInputs.cache
 D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Game - 2048.exe
 D:\IBB\IBB CSharp Kurs\Konsolenspiel - 2048\obj\Debug\Game - 2048.pdb
+D:\Git\console-games\Konsolenspiel - 2048\bin\Debug\Game - 2048.exe.config
+D:\Git\console-games\Konsolenspiel - 2048\bin\Debug\Game - 2048.exe
+D:\Git\console-games\Konsolenspiel - 2048\bin\Debug\Game - 2048.pdb
+D:\Git\console-games\Konsolenspiel - 2048\obj\Debug\Game - 2048.csproj.AssemblyReference.cache
+D:\Git\console-games\Konsolenspiel - 2048\obj\Debug\Game - 2048.csproj.CoreCompileInputs.cache
+D:\Git\console-games\Konsolenspiel - 2048\obj\Debug\Game - 2048.exe
+D:\Git\console-games\Konsolenspiel - 2048\obj\Debug\Game - 2048.pdb

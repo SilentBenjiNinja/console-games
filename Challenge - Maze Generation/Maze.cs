@@ -99,6 +99,9 @@ namespace Challenges.MazeGeneration
 
             Helper.DebugStat(1, "State", $"Generation done ({Helper.StopwatchTimeString})");
             Helper.DebugStat(6, "Path nodes populated", $"{pathNodesTotal}");
+
+            Helper.Pause();
+            Helper.Pause();
         }
 
         List<Tunneler> GetTunnelersForNode(Int2 nodePosition)

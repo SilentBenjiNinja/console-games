@@ -11,7 +11,8 @@ namespace Challenges.MazeGeneration
         public List<CrossNode> ClosedNodes { get; private set; }
 
         public List<CrossNode> OpenNodes =>
-            ClosedNodes.Where(closedNode => GetOpenDirections(closedNode.Position).Count > 0).ToList();
+            ClosedNodes.Where(closedNode =>
+            GetOpenDirections(closedNode.Position).Count > 0).ToList();
 
         public CrossNode this[Int2 nodePosition]
         {

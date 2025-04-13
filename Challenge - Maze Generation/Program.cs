@@ -23,7 +23,7 @@ namespace Challenges.MazeGeneration
 
                 maze.Generate();
 
-                maze.Solve();
+                //maze.Solve();
 
                 Console.Clear();
             }

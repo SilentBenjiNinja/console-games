@@ -63,7 +63,7 @@ namespace Games.UnnamedConsoleGame
 
             InputLoop();
 
-            gameTickThread.Abort();
+            gameTickThread.Join();
 
             while (true)
                 if (Console.ReadKey(true).Key == ConsoleKey.Enter)

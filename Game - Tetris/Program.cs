@@ -145,7 +145,7 @@ namespace Games.Tetris
 
             InputLoop();
 
-            gameTickThread.Abort();
+            gameTickThread.Join();
 
             while (true)
                 if (Console.ReadKey(true).Key == ConsoleKey.Enter)
